@@ -12,18 +12,18 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-charcoal text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <nav className="bg-charcoal/95 backdrop-blur-md text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
-        <Link href="/" className="text-2xl font-bold tracking-tight">
+        <Link href="/" className="text-2xl font-extrabold tracking-tight">
           <span className="text-teal">Summit</span> Air Solutions
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className="text-sm font-medium hover:text-teal transition-colors">
+            <Link key={l.href} href={l.href} className="text-sm font-medium hover:text-teal transition-colors duration-300">
               {l.label}
             </Link>
           ))}
-          <a href="tel:5558765432" className="bg-teal hover:bg-teal-dark text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors">
+          <a href="tel:5558765432" className="bg-teal hover:bg-teal-dark text-white text-sm font-bold px-6 py-2.5 rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(14,165,233,0.3)]">
             (555) 876-5432
           </a>
         </div>
@@ -40,11 +40,11 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden px-4 pb-4 space-y-2 border-t border-white/10">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-sm font-medium py-2 hover:text-teal transition-colors">
+            <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-sm font-medium py-2 hover:text-teal transition-colors duration-300">
               {l.label}
             </Link>
           ))}
-          <a href="tel:5558765432" className="block bg-teal text-white text-sm font-semibold px-4 py-2.5 rounded-lg text-center">
+          <a href="tel:5558765432" className="block bg-teal text-white text-sm font-bold px-4 py-2.5 rounded-lg text-center">
             (555) 876-5432
           </a>
         </div>
