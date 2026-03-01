@@ -1,41 +1,48 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Services | Summit Air Solutions",
-  description: "AC installation & repair, heating systems, ductwork, indoor air quality, maintenance plans, and 24/7 emergency HVAC service.",
+  description: "AC installation & repair, heating systems, indoor air quality, maintenance plans, and 24/7 emergency HVAC service.",
 };
 
 const services = [
   {
     icon: "cooling",
     title: "AC Installation & Repair",
-    description: "From new high-efficiency central air systems to emergency repairs on your existing unit, our certified technicians handle it all. We work with all major brands including Carrier, Trane, Lennox, and Goodman. Every installation includes a full load calculation to ensure proper sizing.",
+    image: "/images/hvac-unit.jpg",
+    description: "From new high-efficiency central air systems to emergency repairs on your existing unit, our certified technicians handle it all. We work with all major brands including Carrier, Trane, Lennox, and Goodman.",
+    includes: ["Full load calculation for proper sizing", "Energy-efficient system recommendations", "Same-day emergency repairs", "Parts and labor warranty"],
+    signs: ["Uneven cooling throughout your home", "Rising energy bills", "Unusual noises from the unit", "System is 10+ years old"],
+    brands: "Carrier, Trane, Lennox, Goodman, Rheem, Daikin",
   },
   {
     icon: "heating",
     title: "Heating Systems",
-    description: "Stay warm with expert furnace and heat pump installation, repair, and maintenance. We service gas, electric, and dual-fuel systems. Our technicians diagnose issues fast and carry common parts on every truck for same-visit repairs.",
-  },
-  {
-    icon: "ductwork",
-    title: "Ductwork & Ventilation",
-    description: "Leaky or poorly designed ductwork can waste up to 30% of your energy. We offer duct sealing, insulation, repair, and complete redesigns. Improve airflow, reduce energy bills, and eliminate hot and cold spots throughout your home.",
+    image: "/images/technician-work.jpg",
+    description: "Stay warm with expert furnace and heat pump installation, repair, and maintenance. We service gas, electric, and dual-fuel systems. Our technicians diagnose issues fast and carry common parts on every truck.",
+    includes: ["Furnace installation and replacement", "Heat pump service", "Gas and electric systems", "Same-visit repairs"],
+    signs: ["Cold spots in your home", "Frequent cycling on and off", "Yellow pilot light", "Strange smells when running"],
+    brands: "Carrier, Trane, Lennox, Rheem, Goodman, Daikin",
   },
   {
     icon: "airquality",
     title: "Indoor Air Quality",
-    description: "Breathe easier with whole-home air purification systems, humidifiers, dehumidifiers, and UV germicidal lights. We also provide professional air duct cleaning to remove dust, allergens, and contaminants from your system.",
+    image: "/images/comfortable-home.jpg",
+    description: "Breathe easier with whole-home air purification systems, humidifiers, dehumidifiers, and UV germicidal lights. We also provide professional air duct cleaning to remove dust, allergens, and contaminants.",
+    includes: ["Whole-home air purifiers", "Humidifier and dehumidifier installation", "UV germicidal lights", "Professional duct cleaning"],
+    signs: ["Excessive dust buildup", "Allergy symptoms indoors", "Musty or stale odors", "Inconsistent humidity levels"],
+    brands: "Carrier, Trane, Lennox, Honeywell, Aprilaire",
   },
   {
     icon: "maintenance",
     title: "Preventive Maintenance Plans",
-    description: "Our Summit Shield maintenance plans include biannual tune-ups, priority scheduling, 15% parts discounts, and no overtime charges. Regular maintenance extends equipment life by up to 40% and keeps your warranty intact.",
-  },
-  {
-    icon: "emergency",
-    title: "Emergency 24/7 Service",
-    description: "HVAC emergencies don't wait for business hours. Our team is available 24/7, 365 days a year. We guarantee a response within 60 minutes for emergency calls in our service area. No extra charge for nights or weekends with a maintenance plan.",
+    image: "/images/modern-home.jpg",
+    description: "Our Summit Shield maintenance plans include biannual tune-ups, priority scheduling, 15% parts discounts, and no overtime charges. Regular maintenance extends equipment life by up to 40%.",
+    includes: ["Biannual system tune-ups", "Priority scheduling", "15% parts discount", "No overtime charges"],
+    signs: ["No maintenance in over a year", "System running less efficiently", "Higher than normal energy bills", "Want to protect your warranty"],
+    brands: "All major HVAC brands serviced",
   },
 ];
 
@@ -52,23 +59,13 @@ const iconMap: Record<string, React.ReactNode> = {
   ),
   airquality: (
     <svg className="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={1.5} fill="none" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 12h4m-2-2v4m6-6c2.5 0 4.5 1 6 3-1.5 2-3.5 3-6 3s-4.5-1-6-3c.5-.67 1.2-1.27 2-1.73" />
     </svg>
   ),
   maintenance: (
     <svg className="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-    </svg>
-  ),
-  ductwork: (
-    <svg className="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
-    </svg>
-  ),
-  emergency: (
-    <svg className="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+      <rect x="3" y="4" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M16 2v4M8 2v4M3 10h18" />
     </svg>
   ),
 };
@@ -77,26 +74,62 @@ export default function ServicesPage() {
   return (
     <>
       <section className="bg-charcoal py-28 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal-light to-teal/5" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-5 tracking-tight">Our Services</h1>
-          <p className="text-gray-400 max-w-2xl text-xl font-light">Comprehensive HVAC solutions tailored to your home&apos;s needs. Every service backed by our satisfaction guarantee.</p>
+          <p className="text-white/60 max-w-2xl text-xl font-light">Comprehensive HVAC solutions tailored to your home. Every service backed by our satisfaction guarantee.</p>
         </div>
       </section>
 
-      <section className="py-28 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           {services.map((s, i) => (
-            <div key={s.title} className={`rounded-2xl p-10 md:p-14 transition-all duration-300 hover:-translate-y-0.5 ${i % 2 === 0 ? "bg-white border border-gray-100 shadow-sm hover:shadow-lg" : "bg-slate-light"}`}>
-              <div className="flex flex-col md:flex-row md:items-start gap-8">
-                <div className="w-16 h-16 bg-teal/10 rounded-2xl flex items-center justify-center shrink-0">
-                  {iconMap[s.icon]}
+            <div key={s.title} className={`rounded-2xl overflow-hidden ${i % 2 === 0 ? "bg-white border border-gray-100" : "bg-gray-light"}`}>
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div className="relative h-64 lg:h-auto min-h-[300px]">
+                  <Image src={s.image} alt={s.title} fill className="object-cover" />
                 </div>
-                <div className="flex-1">
-                  <h2 className="text-3xl font-extrabold text-charcoal mb-4 tracking-tight">{s.title}</h2>
-                  <p className="text-gray-500 mb-6 leading-relaxed text-lg">{s.description}</p>
-                  <Link href="/contact" className="inline-block bg-teal hover:bg-teal-dark text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(14,165,233,0.3)]">
-                    Schedule Now
+                <div className="p-10 md:p-14">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 bg-teal/10 rounded-2xl flex items-center justify-center shrink-0">
+                      {iconMap[s.icon]}
+                    </div>
+                    <h2 className="text-3xl font-extrabold text-charcoal tracking-tight">{s.title}</h2>
+                  </div>
+                  <p className="text-gray-500 mb-8 leading-relaxed text-lg">{s.description}</p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+                    <div>
+                      <h3 className="font-bold text-charcoal mb-3">What It Includes</h3>
+                      <ul className="space-y-2 text-sm text-gray-500">
+                        {s.includes.map((item) => (
+                          <li key={item} className="flex items-start gap-2">
+                            <svg className="w-4 h-4 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-charcoal mb-3">Signs You Need It</h3>
+                      <ul className="space-y-2 text-sm text-gray-500">
+                        {s.signs.map((item) => (
+                          <li key={item} className="flex items-start gap-2">
+                            <svg className="w-4 h-4 text-charcoal/40 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M12 3a9 9 0 100 18 9 9 0 000-18z" />
+                            </svg>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-gray-400 mb-6">Brands serviced: {s.brands}</p>
+
+                  <Link href="/contact" className="inline-block bg-teal hover:bg-teal-dark text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-105">
+                    Schedule Service
                   </Link>
                 </div>
               </div>
