@@ -31,7 +31,7 @@ export default function ContactPage() {
               <a href="tel:5558765432" className="underline">
                 (555) 876-5432
               </a>{" "}
-              &mdash; available 24/7
+              , available 24/7
             </p>
           </div>
 

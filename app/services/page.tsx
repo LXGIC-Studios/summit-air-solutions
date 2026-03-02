@@ -190,7 +190,7 @@ export default function ServicesPage() {
             href="tel:5558765432"
             className="inline-block bg-[#00B894] text-white font-bold px-10 py-4 rounded-lg hover:bg-[#00a884] transition-colors duration-300 text-lg"
           >
-            Call (555) 876-5432 - Available 24/7
+            Call (555) 876-5432. Available 24/7
           </a>
         </div>
       </section>
