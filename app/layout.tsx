@@ -1,29 +1,30 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
-const jakarta = Plus_Jakarta_Sans({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta",
 });
 
 export const metadata: Metadata = {
-  title: "Summit Air Solutions | HVAC Installation & Repair",
+  title: "Summit Air Solutions | HVAC Installation & Repair in Nashville",
   description:
-    "Professional heating, cooling, and air quality services. 15+ years experience, same-day service available. Call (555) 876-5432.",
+    "Nashville's trusted HVAC experts. AC repair, heating, air quality, and maintenance plans. Same-day service available. Call (555) 876-5432.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${jakarta.variable} font-sans antialiased pt-20`}>
-        <Navbar />
+      <body className={`${plusJakarta.variable} font-sans antialiased`} style={{ fontFamily: "var(--font-plus-jakarta), sans-serif" }}>
+        <Navigation />
         <main>{children}</main>
         <Footer />
       </body>

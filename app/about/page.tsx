@@ -1,101 +1,97 @@
-import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Summit Air Solutions",
-  description: "Founded in 2009, Summit Air Solutions has been providing expert HVAC services to Middle Tennessee for over 15 years.",
+  title: "About Us | Summit Air Solutions - Nashville HVAC",
+  description: "Serving Nashville since 2009. NATE Certified, EPA Licensed, BBB A+ Accredited HVAC professionals.",
 };
 
-const team = [
-  { name: "Mike Reynolds", title: "Founder & Lead Technician", image: "/images/technician.jpg" },
-  { name: "Jessica Chen", title: "Operations Manager", image: "/images/comfortable-home.jpg" },
-  { name: "David Ortiz", title: "Senior HVAC Technician", image: "/images/technician-work.jpg" },
-  { name: "Rachel Adams", title: "Customer Relations", image: "/images/modern-home.jpg" },
+const certifications = [
+  { name: "NATE Certified", desc: "North American Technician Excellence" },
+  { name: "EPA Licensed", desc: "EPA Section 608 Certified" },
+  { name: "BBB A+ Accredited", desc: "Better Business Bureau" },
 ];
 
-const certs = [
-  { label: "NATE Certified", icon: (
-    <svg className="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-    </svg>
-  )},
-  { label: "EPA Licensed", icon: (
-    <svg className="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-    </svg>
-  )},
-  { label: "BBB A+ Rating", icon: (
-    <svg className="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-    </svg>
-  )},
-  { label: "Licensed & Insured", icon: (
-    <svg className="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-    </svg>
-  )},
+const serviceAreas = [
+  "Nashville", "Franklin", "Murfreesboro", "Brentwood", "Spring Hill",
+  "Gallatin", "Hendersonville", "Mount Juliet", "Lebanon", "Smyrna",
+];
+
+const team = [
+  { name: "James Mitchell", role: "Founder & Lead Technician", years: "17 years experience" },
+  { name: "Sarah Chen", role: "Operations Manager", years: "10 years in HVAC" },
+  { name: "Marcus Williams", role: "Senior Installer", years: "12 years experience" },
+  { name: "Emily Foster", role: "Customer Relations", years: "8 years experience" },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-charcoal py-28 md:py-32 relative overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-5 tracking-tight">About Summit Air</h1>
-          <p className="text-white/60 max-w-2xl text-xl font-light">Keeping homes comfortable since 2009.</p>
+      {/* Header */}
+      <section className="bg-[#2D3436] pt-32 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-[#00B894] text-sm font-bold uppercase tracking-widest mb-4">
+            About Us
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+            Nashville&apos;s HVAC Experts Since 2009
+          </h1>
+          <p className="text-gray-400 text-lg max-w-2xl">
+            What started as a one-man operation has grown into one of Middle Tennessee&apos;s most trusted HVAC companies.
+          </p>
         </div>
       </section>
 
-      {/* History */}
-      <section className="py-28 md:py-32 bg-white">
+      {/* Story */}
+      <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-charcoal mb-8 tracking-tight">Our Story</h2>
-              <div className="space-y-5 text-gray-500 leading-relaxed text-lg">
-                <p>Summit Air Solutions was founded in 2009 with a simple mission: provide honest, high-quality heating and cooling services at fair prices to Middle Tennessee homeowners.</p>
-                <p>What started as a one-truck operation has grown into a full-service HVAC company serving over 5,000 homes across the region. Despite our growth, we have never lost sight of what matters most &mdash; treating every customer like family.</p>
-                <p>Today, our team of certified technicians brings decades of combined experience to every job. We invest in ongoing training, the latest diagnostic equipment, and premium parts to ensure your comfort system performs at its best for years to come.</p>
-              </div>
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="flex-1 relative h-[400px] w-full rounded-xl overflow-hidden">
+              <Image
+                src="/images/hvac-unit.jpg"
+                alt="HVAC equipment"
+                fill
+                className="object-cover"
+              />
             </div>
-            <div className="relative h-80 lg:h-[500px] rounded-2xl overflow-hidden">
-              <Image src="/images/family-home.jpg" alt="Comfortable home" fill className="object-cover" />
+            <div className="flex-1">
+              <h2 className="text-3xl font-extrabold text-[#2D3436] mb-6">Our Story</h2>
+              <div className="space-y-4 text-gray-600">
+                <p>
+                  Summit Air Solutions was founded in 2009 by James Mitchell, a veteran HVAC technician with a simple vision: provide honest, reliable heating and cooling services to Nashville-area homeowners.
+                </p>
+                <p>
+                  Starting with a single truck and a commitment to doing things right, James built Summit on the principles of transparency, quality workmanship, and genuine care for every customer.
+                </p>
+                <p>
+                  Today, our team of certified technicians serves over 5,000 homes across the Nashville metro area. We&apos;ve grown, but our values haven&apos;t changed. Every job gets our full attention, and every customer gets treated like family.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Certifications */}
-      <section className="py-28 md:py-32 bg-charcoal">
+      <section className="bg-[#F8F9FA] py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-16 tracking-tight">Certifications & Accreditations</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {certs.map((c) => (
-              <div key={c.label} className="bg-white/5 rounded-2xl p-10 text-center border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10">
-                <div className="w-16 h-16 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-5">
-                  {c.icon}
+          <h2 className="text-3xl font-extrabold text-[#2D3436] text-center mb-16">
+            Certifications & Accreditations
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {certifications.map((cert) => (
+              <div
+                key={cert.name}
+                className="bg-white rounded-xl p-8 text-center border border-gray-100 shadow-sm"
+              >
+                <div className="w-16 h-16 bg-[#00B894] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                  </svg>
                 </div>
-                <div className="font-semibold text-white text-sm">{c.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-28 md:py-32 bg-gray-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-charcoal text-center mb-16 tracking-tight">Meet Our Team</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((t) => (
-              <div key={t.name} className="rounded-2xl overflow-hidden bg-white border border-gray-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div className="relative h-60 bg-gray-200">
-                  <Image src={t.image} alt={t.name} fill className="object-cover" />
-                </div>
-                <div className="p-6">
-                  <div className="font-bold text-charcoal text-lg">{t.name}</div>
-                  <div className="text-sm text-gray-400">{t.title}</div>
-                </div>
+                <h3 className="text-xl font-bold text-[#2D3436] mb-2">{cert.name}</h3>
+                <p className="text-gray-500 text-sm">{cert.desc}</p>
               </div>
             ))}
           </div>
@@ -103,15 +99,65 @@ export default function AboutPage() {
       </section>
 
       {/* Service Area */}
-      <section className="py-28 md:py-32 bg-white">
+      <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-charcoal mb-6 tracking-tight">Service Area</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto mb-10 text-lg leading-relaxed">
-            We proudly serve Middle Tennessee including Nashville, Murfreesboro, Franklin, Spring Hill, Gallatin, Hendersonville, Lebanon, and surrounding communities within a 40-mile radius.
+          <h2 className="text-3xl font-extrabold text-[#2D3436] mb-4">
+            Service Area
+          </h2>
+          <p className="text-gray-500 mb-12 max-w-2xl mx-auto">
+            We proudly serve homes throughout the Nashville metropolitan area and surrounding communities.
           </p>
-          <div className="inline-block bg-teal/10 text-teal font-bold px-8 py-4 rounded-xl text-lg">
-            Serving Middle Tennessee
+          <div className="flex flex-wrap justify-center gap-4">
+            {serviceAreas.map((area) => (
+              <span
+                key={area}
+                className="bg-[#F8F9FA] text-[#2D3436] font-semibold px-6 py-3 rounded-lg text-sm"
+              >
+                {area}
+              </span>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="bg-[#F8F9FA] py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-extrabold text-[#2D3436] text-center mb-16">
+            Meet Our Team
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {team.map((member) => (
+              <div key={member.name} className="bg-white rounded-xl p-8 text-center shadow-sm">
+                <div className="w-20 h-20 bg-[#2D3436] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-[#2D3436] mb-1">{member.name}</h3>
+                <p className="text-[#00B894] text-sm font-semibold mb-2">{member.role}</p>
+                <p className="text-gray-400 text-sm">{member.years}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-white py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-extrabold text-[#2D3436] mb-4">
+            Work With Nashville&apos;s Best
+          </h2>
+          <p className="text-gray-500 mb-8">
+            Experience the Summit difference. Schedule your service today.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-[#00B894] text-white font-bold px-10 py-4 rounded-lg hover:bg-[#00a884] transition-colors duration-300"
+          >
+            Schedule Service
+          </Link>
         </div>
       </section>
     </>

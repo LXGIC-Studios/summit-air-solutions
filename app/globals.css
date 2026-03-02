@@ -1,10 +1,1 @@
 @import "tailwindcss";
-
-@theme {
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --color-charcoal: #2D3436;
-  --color-charcoal-light: #363b3d;
-  --color-teal: #00B894;
-  --color-teal-dark: #00a383;
-  --color-gray-light: #F8F9FA;
-}

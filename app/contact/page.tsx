@@ -1,67 +1,142 @@
-import type { Metadata } from "next";
-import ContactForm from "@/components/ContactForm";
-
-export const metadata: Metadata = {
-  title: "Contact Us | Summit Air Solutions",
-  description: "Schedule HVAC service or request a free estimate. Call (555) 876-5432 or fill out our contact form. 24/7 emergency service available.",
-};
+"use client";
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+
   return (
     <>
-      <section className="bg-charcoal py-28 md:py-32 relative overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-5 tracking-tight">Contact Us</h1>
-          <p className="text-white/60 max-w-2xl text-xl font-light">Ready to schedule service? Fill out the form below or give us a call.</p>
+      {/* Header */}
+      <section className="bg-[#2D3436] pt-32 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-[#00B894] text-sm font-bold uppercase tracking-widest mb-4">
+            Contact Us
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+            Get in Touch
+          </h1>
+          <p className="text-gray-400 text-lg max-w-2xl">
+            Ready to schedule service or have a question? We&apos;re here to help.
+          </p>
         </div>
       </section>
 
-      <section className="py-28 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
-            <div className="lg:col-span-3">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-charcoal mb-10 tracking-tight">Request Service</h2>
-              <ContactForm />
-            </div>
-
-            <div className="lg:col-span-2 space-y-8">
-              {/* Emergency Phone */}
-              <div className="bg-teal rounded-2xl p-10 text-white">
-                <div className="text-sm font-medium mb-2 uppercase tracking-widest text-white/70">Emergency? Call Now</div>
-                <a href="tel:5558765432" className="text-3xl font-extrabold hover:underline tracking-tight">(555) 876-5432</a>
-                <div className="text-sm mt-3 text-white/70">24/7 emergency service available</div>
-              </div>
-
-              {/* Hours */}
-              <div className="bg-gray-light rounded-2xl p-10">
-                <h3 className="font-bold text-charcoal mb-5 text-lg">Business Hours</h3>
-                <ul className="space-y-4 text-sm text-gray-500">
-                  <li className="flex justify-between"><span>Monday &ndash; Friday</span><span className="font-semibold text-charcoal">7:00 AM &ndash; 7:00 PM</span></li>
-                  <li className="flex justify-between"><span>Saturday</span><span className="font-semibold text-charcoal">8:00 AM &ndash; 5:00 PM</span></li>
-                  <li className="flex justify-between"><span>Sunday</span><span className="font-semibold text-charcoal">Closed</span></li>
-                </ul>
-              </div>
-
-              {/* Emergency */}
-              <div className="border-2 border-teal rounded-2xl p-10">
-                <h3 className="font-bold text-charcoal mb-3 text-lg">Emergency Service</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  HVAC emergency? We offer 24/7 emergency service, 365 days a year. Call us anytime at{" "}
-                  <a href="tel:5558765432" className="text-teal font-bold">(555) 876-5432</a> and a technician will be dispatched within 60 minutes.
-                </p>
-              </div>
-
-              {/* Address */}
-              <div className="bg-gray-light rounded-2xl p-10">
-                <h3 className="font-bold text-charcoal mb-3 text-lg">Our Location</h3>
-                <p className="text-sm text-gray-500">
-                  1234 Summit Drive<br />
-                  Nashville, TN 37201
-                </p>
-                <p className="text-sm text-gray-400 mt-3">info@summitairsolutions.com</p>
-              </div>
-            </div>
+      {/* Form Section */}
+      <section className="bg-[#F8F9FA] py-24">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Emergency Banner */}
+          <div className="bg-[#00B894] rounded-xl p-6 mb-10 text-center">
+            <p className="text-white font-bold text-lg">
+              For emergencies, call{" "}
+              <a href="tel:5558765432" className="underline">
+                (555) 876-5432
+              </a>{" "}
+              &mdash; available 24/7
+            </p>
           </div>
+
+          {submitted ? (
+            <div className="bg-white rounded-xl p-12 text-center shadow-sm">
+              <svg className="w-16 h-16 text-[#00B894] mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h2 className="text-2xl font-extrabold text-[#2D3436] mb-4">
+                Request Received
+              </h2>
+              <p className="text-gray-500">
+                We&apos;ll be in touch within 24 hours. For immediate assistance, call (555) 876-5432.
+              </p>
+            </div>
+          ) : (
+            <form
+              className="bg-white rounded-xl p-8 sm:p-12 shadow-sm"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setSubmitted(true);
+              }}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-bold text-[#2D3436] mb-2">Name</label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-[#2D3436] focus:outline-none focus:border-[#00B894] transition-colors duration-300"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-[#2D3436] mb-2">Phone</label>
+                  <input
+                    type="tel"
+                    required
+                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-[#2D3436] focus:outline-none focus:border-[#00B894] transition-colors duration-300"
+                    placeholder="(555) 000-0000"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <label className="block text-sm font-bold text-[#2D3436] mb-2">Email</label>
+                <input
+                  type="email"
+                  required
+                  className="w-full border border-gray-200 rounded-lg px-4 py-3 text-[#2D3436] focus:outline-none focus:border-[#00B894] transition-colors duration-300"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-bold text-[#2D3436] mb-2">Service Type</label>
+                  <select
+                    required
+                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-[#2D3436] focus:outline-none focus:border-[#00B894] transition-colors duration-300 bg-white"
+                  >
+                    <option value="">Select a service</option>
+                    <option>AC Repair</option>
+                    <option>Heating</option>
+                    <option>Air Quality</option>
+                    <option>Maintenance</option>
+                    <option>Emergency</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-[#2D3436] mb-2">Preferred Date</label>
+                  <input
+                    type="date"
+                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-[#2D3436] focus:outline-none focus:border-[#00B894] transition-colors duration-300"
+                  />
+                </div>
+              </div>
+
+              <div className="mb-8">
+                <label className="block text-sm font-bold text-[#2D3436] mb-2">Urgency</label>
+                <div className="flex flex-wrap gap-4">
+                  {["Routine", "Within a Week", "Emergency"].map((option) => (
+                    <label key={option} className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="urgency"
+                        value={option}
+                        className="accent-[#00B894]"
+                        defaultChecked={option === "Routine"}
+                      />
+                      <span className="text-[#2D3436] text-sm font-medium">{option}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-[#00B894] text-white font-bold py-4 rounded-lg hover:bg-[#00a884] transition-colors duration-300"
+              >
+                Submit Request
+              </button>
+            </form>
+          )}
         </div>
       </section>
     </>
